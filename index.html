@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management - CRUD Application</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>User Management System</h1>
+        <p class="subtitle">CRUD Application with JSONPlaceholder API</p>
+      </header>
+
+      <!-- Search and Add User Section -->
+      <div class="controls">
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search users by name..."
+          />
+          <button id="searchBtn">Search</button>
+          <button id="clearSearchBtn">Clear</button>
+        </div>
+        <button id="addUserBtn" class="btn-primary">+ Add New User</button>
+      </div>
+
+      <!-- Error Display -->
+      <div id="errorMessage" class="error-message hidden"></div>
+
+      <!-- Success Message -->
+      <div id="successMessage" class="success-message hidden"></div>
+
+      <!-- Loading Indicator -->
+      <div id="loadingIndicator" class="loading hidden">Loading...</div>
+
+      <!-- Users Table -->
+      <div class="table-container">
+        <table id="usersTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody">
+            <!-- Users will be populated here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination">
+        <button id="prevBtn" class="page-btn">Previous</button>
+        <span id="pageInfo">Page 1</span>
+        <button id="nextBtn" class="page-btn">Next</button>
+      </div>
+
+      <!-- Add/Edit User Modal -->
+      <div id="userModal" class="modal hidden">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="modalTitle">Add New User</h2>
+            <span class="close-btn" id="closeModal">&times;</span>
+          </div>
+          <form id="userForm">
+            <div class="form-group">
+              <label for="userName">Name *</label>
+              <input type="text" id="userName" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="userEmail">Email *</label>
+              <input type="email" id="userEmail" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="userPhone">Phone *</label>
+              <input type="tel" id="userPhone" name="phone" required />
+            </div>
+            <div class="form-actions">
+              <button type="button" id="cancelBtn" class="btn-secondary">
+                Cancel
+              </button>
+              <button type="submit" id="submitBtn" class="btn-primary">
+                Save User
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Delete Confirmation Modal -->
+      <div id="deleteModal" class="modal hidden">
+        <div class="modal-content modal-small">
+          <div class="modal-header">
+            <h2>Confirm Delete</h2>
+            <span class="close-btn" id="closeDeleteModal">&times;</span>
+          </div>
+          <p>Are you sure you want to delete this user?</p>
+          <div class="form-actions">
+            <button type="button" id="cancelDeleteBtn" class="btn-secondary">
+              Cancel
+            </button>
+            <button type="button" id="confirmDeleteBtn" class="btn-danger">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
